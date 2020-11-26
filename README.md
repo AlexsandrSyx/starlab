@@ -4,7 +4,7 @@
 # Цель лабораторной работы:
 ## Целью лабораторной работы является знакомство с проектированием многослойной архитектуры Web-API (веб-приложений, микро-сервисов).
 
-Приложение представляет из себя простой микросервис, реализующий CRUD на примере внутренней телефонной базы. Для работы приложения требуется запущенная БД postgresql.
+Приложение представляет из себя простой микросервис, реализующий CRUD на примере продуктов. Для работы приложения требуется запущенная БД postgresql.
 
 # Подготовка базы данных
 В файле ./src/main/resources/application.properties следует указать в параметре spring.datasource.username = имя пользователя для доступа в БД, в параметре spring.datasource.password = пароль для доступа к БД. В параметре spring.datasource.url = необходимо указать адрес для доступа к БД, например для доступа к БД запущенной на локальном компьютере значение будет jdbc:postgresql://localhost:5432/postgresql, для БД запущенной в docker на локальной машине значение будет jdbc:postgresql://172.17.0.1:5432/postgresql.
@@ -32,13 +32,12 @@
 curl -X GET http://127.0.0.1:8080/skynet/electronik/product В ответ будет получен JSON.
 
 # Получить запись по id:
-curl -X GET http://127.0.0.1:8080/skynet/electronik/product{id} В ответ будет получен JSON с результатом.
+curl -X GET http://127.0.0.1:8080/skynet/electronik/product/d} В ответ будет получен JSON с результатом.
 
 # Добавить запись:
-curl -X POST http://127.0.0.1:8080/skynet/electronik/product -d ‘{«name»: "новое продукт″, "brand": "новый бренд", "price": 10000, "quantity": 1000}’ -H «Content-Type:application/json» В ответ будет получен статус 200 ОК.
+curl -X POST http://127.0.0.1:8080/skynet/electronik/product -d ‘{«name»: "новый продукт″, "brand": "новый бренд", "price": 100, "quantity": 100}’ -H «Content-Type:application/json» В ответ будет получен статус 200 ОК.
 
 # Удалить запись:
-curl -i -X DELETE http://127.0.0.1:8080/skynet/electronik/product/del/{id} В ответ будет получен статус 204 No Content.
-
+curl -i -X DELETE http://127.0.0.1:8080/skynet/electronik/product/{id}
 #Также приложение возвращает значение hostname:
 curl -X GET http://127.0.0.1:8080/skynet/electronik/status В ответ будет получен JSON в виде {hostname: "hostname"}.
