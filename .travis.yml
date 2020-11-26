@@ -1,8 +1,28 @@
-dist: trusty # репозиторий внутри travis
+dist: trusty
 jdk: oraclejdk8
 language: java
 services:
-  - postgresql
-  - docker
+- postgresql
+- docker
 before_install:
-  - chmod +x mvnw
+- chmod +x mvnw
+env:
+  global:
+  - secure: rAhE00yPfiwemnDRU3bU9dAmL+SWRpPpXVkmxeCp9XEP+roNI+t4yic7HVt8Xx5zykP5ml1Jf+oCDPYTJ23/UlvTHsxLi2lzAW+hPVCfyIVuw3qYUo1aHwUvgfY3OsOscqwRCIeGgEVdVyxvFd+gFb1KzT9jBPXPHeIMcLaTiPkrXoWrNg/rKFIAo3NT/lYxa1USCsLUqCliznEPzO7uNTkX2sGBkigYzZfQvRi/4X/L/ziunUXsKVXWsl6NhtheQl6+cvMu87QGaNX6H9RTp7ovduNAe4L89AbVPr3Mwncv3bTee5umeNqjtwAPQg4+Tn2elaYWuANkEGKFPgCJ6OdxBwUhquHZq4EVqTt+U7RUGmr/m7H/bFoCvQ8KHdphwFJZ/rpjXg17J7LmJlH6X+J5PSKfFFuWTNA09ItoiW8XtWS/qt8wld3+JGtr1OAf0IRIt9FqRy0Oq1XDD0ujGaRDBW7hhaVGuZyqadxhfOhDnR3tj1iu8fw08ZB9jS9iofKrYhqTlIRL9XOPz9Q2TMNSTqWALLf4MrZZ0gx0p5kN/OcRgwoktq8d7qGCIP/27zeLd63KWc7v4+gvtx0UTcY2cvVBQHozClg0o3GJSdaVPmSIXwim7Z4d0vcIX8nlPh6Ot3k1mV8O5rIVgZWZzwdRdw3HlL1t+YbTvdN0b5s=
+  - secure: Jts3oOJBHsBuJXh/foduY2y59RdyM29gkZJZocBqQ+748nb5jEwW01maOWbJwJkzQxqPxmVmcHbU4sy0AOiKSA8teQ5i0b2UPMVq6ZuBKHRdxgWGnGwUx4n/sOQHDTqpvBFvgVxN4T+bKZkH2Ut2+xS9OLCbIkmdOeUvckMO1JmMsi7sV8V/bza/RaymUn4NDSCbYQoe3YB2pM9giLB0eUrf30bN4J/gq7fTb0AcAd1XYNQcsDWSBN6kJb8G9QpwDnw7sh2KGQ/Ob2hrXLX9QdgZegU9gi84Ejm5MdstUuns0N32A30voDXscrhsf9GxrQFVhuP9xXzFE6HzjbDROp37XTda4rr8dHgDab2jJ29fIz3hERIVp5PgdYENAgCx6O+yAX4B4LdA5i1OlJUW1HVfOqinKTa0IWTdlX4NMtTCawAIoCLg9kaQ/dCGM18CEas209wl8Wczl2al7Babl20gF6ot1bTh59aStvqrRgczYsmdkpQX8o4tsiyH78QGepQWYQzQHMJXFmaHyBesqZOrVscgVwFAUjVYCfcxjbpncMnBlh5xRW1oIEBKcyjDZsFsUM7BZ2ojPZExEqm6HB2NmgNJIod+aU/G2V4zQfEdPO9mp2wlvbU6tSzP4w+Ju45vFQ/0QRDgv6uVM/znWFVJX0+8y3guQY9GOGKBf8k=
+  - secure: FOLHPdtcsBc9qbYIA8ObJA9xO6NfewMbtzypl3mVxLh6+L83+9v46BONFho+h6x6S4f9165UoXYjJ8/L8VOnCIcrGJYh2kX0uZmEef+8iiXCfrjKR6LZNBf0msfEMlqZNzWb/aBeuVZkgfEh/IuvxS8cM21Te4nVlMvnU2Hc/PdbvMllPSghswHB+fchb2/EvhmSKtNjdbiY9yuoimx6xT/oLGuroTRvcrqmp5Eupi2VrzOgZcgGr15tiPhWiDCty+JN27dSk0nHlOs7sabm3WmS+zhzDm15eOVi18rtiP3Bz4d25NtKKqoisAb7XXtou48Ozdwu3PLSj08zFc3UVL4rV+8iUA7hUeWvRP5GMhkL0aaOepgakYXntr7pC51Rqg9deAVwgccqbSoyqCsJyP+/gT5tXPmx4xFCgBgzJKgfupKvuP6tLwroNItBPotcXbw0mYU1/1yQfR8gz/Sr39cid9y+nhNlQvfJRZcEt+g6OSYBouHSBVoeTHdmWooyuFDY3VsULyVvdiam1y2vW+xxRrisNcllpa1ULhfr8gBOdhnuipTl/I011j8pK52NKX0Wk4obV7vhVrzr1/1vvWpAyWCNlLsr0lAEAtuYkguNvzN9dFLkqs9bGy1YBL36NnJLqjud22UKHARXkfp4LI2XXNXSs76QwBvADV3O5II=
+  - COMMIT=${TRAVIS_COMMIT::7}
+script:
+- "./mvnw clean install -B"
+after_success:
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- export TAG=`if [ "$TRAVIS_BRANCH" == "AlexsandrSyx/apilab2" ]; then echo "latest";
+  else echo "$TRAVIS_BRANCH"; fi`
+- export IMAGE_NAME=alexandrsyx/repo-labapi
+- docker build -t $IMAGE_NAME:latest .
+- docker tag $IMAGE_NAME:latest $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME:$TAG
+deploy:
+  provider: heroku
+  api_key: "$HEROKU_API_KEY"
+  app: labapi-mt
