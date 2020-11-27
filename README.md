@@ -90,10 +90,11 @@
       selector:
         app: my-app
 
-#### Скриншоты вывода команды консоли с шага 3.3 на фоне рабочего стола.
+- #### Скриншоты вывода команды консоли с шага 3.3 на фоне рабочего стола.
 ![](https://github.com/AlexsandrSyx/starlab/blob/master/picture/Screen%20console%20command.png)
 >Screen console command
 
+- #### Скриншоты графического интерфейса с шага 3.5, где видны поды.
 ![](https://github.com/AlexsandrSyx/starlab/blob/master/picture/Screen%20graphical%20interface1.png)
 >Screen graphical interface1
 
