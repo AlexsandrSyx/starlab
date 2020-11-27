@@ -41,7 +41,7 @@
 - curl -X GET http://localhost:8080/skynet/electronik/status В ответ будет получен JSON в виде {hostname: "hostname"}.
 ## Лабораторная работа №2: создание кластера Kubernetes и деплой приложения
 Целью лабораторной работы является знакомство с кластерной архитектурой на примере Kubernetes, а также деплоем приложения в кластер.
-####Манифесты 
+#### Манифесты 
 - deployment.yaml
 >
     apiVersion: apps/v1
