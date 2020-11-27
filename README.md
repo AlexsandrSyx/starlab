@@ -41,7 +41,7 @@
 - curl -X GET http://localhost:8080/skynet/electronik/status В ответ будет получен JSON в виде {hostname: "hostname"}.
 ## Лабораторная работа №2: создание кластера Kubernetes и деплой приложения
 Целью лабораторной работы является знакомство с кластерной архитектурой на примере Kubernetes, а также деплоем приложения в кластер.
-Манифесты 
+####Манифесты 
 - deployment.yaml
 >
     apiVersion: apps/v1
@@ -89,7 +89,8 @@
           targetPort: 8080
       selector:
         app: my-app
-
+#####Скриншты вывода команды консоли с шага 3.3 на фоне рабочего стола.
+![](https://github.com/AlexsandrSyx/starlab/blob/master/picture/Screen%20console%20command.png)
 ## Лабораторная работа №3: CI/CD и деплой приложения в Heroku
 # Цель работы: 
 ### Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
