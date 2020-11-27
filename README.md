@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/AlexsandrSyx/starlab.svg?branch=master)](https://travis-ci.com/AlexsandrSyx/starlab)
 # Технология разработки программного обеспечения
 ## Лабораторная работа №1: создание микросервиса на Spring Boot с базой данных
 # Суханов Александр Александрович, Группа 3MAC2001
@@ -41,3 +42,11 @@ curl -X POST http://127.0.0.1:8080/skynet/electronik/product -d ‘{«name»: "�
 curl -i -X DELETE http://127.0.0.1:8080/skynet/electronik/product/{id}
 #Также приложение возвращает значение hostname:
 curl -X GET http://127.0.0.1:8080/skynet/electronik/status В ответ будет получен JSON в виде {hostname: "hostname"}.
+# Лабораторная работа №3: CI/CD и деплой приложения в Heroku
+# Цель работы: 
+## Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
+
+## Ссылка на развернутое приложение: 
+- [получение status в приложении](https://labapi-mt.herokuapp.com/skynet/electronik/status)
+- [получение всех product](https://labapi-mt.herokuapp.com/skynet/electronik/product/)
+- [получение конекретного product](https://labapi-mt.herokuapp.com/skynet/electronik/product/5)
