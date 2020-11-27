@@ -43,7 +43,7 @@
 Целью лабораторной работы является знакомство с кластерной архитектурой на примере Kubernetes, а также деплоем приложения в кластер.
 Манифесты 
 - deployment.yaml
-<?
+>
     apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -73,9 +73,9 @@
           - ip: "192.168.49.1"
             hostnames:
             - postgres.localhost
-?>
+
 - service.yaml
-<
+>
     apiVersion: v1
     kind: Service
     metadata:
@@ -89,7 +89,7 @@
           targetPort: 8080
       selector:
         app: my-app
->
+
 ## Лабораторная работа №3: CI/CD и деплой приложения в Heroku
 # Цель работы: 
 ### Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
