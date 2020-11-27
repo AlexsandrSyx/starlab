@@ -43,7 +43,7 @@
 Целью лабораторной работы является знакомство с кластерной архитектурой на примере Kubernetes, а также деплоем приложения в кластер.
 Манифесты 
 - deployment.yaml
-<
+<?
     apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -73,7 +73,7 @@
           - ip: "192.168.49.1"
             hostnames:
             - postgres.localhost
->
+?>
 - service.yaml
 <
     apiVersion: v1
