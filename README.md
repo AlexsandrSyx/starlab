@@ -89,7 +89,7 @@
           targetPort: 8080
       selector:
         app: my-app
-#####Скриншты вывода команды консоли с шага 3.3 на фоне рабочего стола.
+####Скриншты вывода команды консоли с шага 3.3 на фоне рабочего стола.
 >Screen console command
 ![](https://github.com/AlexsandrSyx/starlab/blob/master/picture/Screen%20console%20command.png)
 ## Лабораторная работа №3: CI/CD и деплой приложения в Heroku
