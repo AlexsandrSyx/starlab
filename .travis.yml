@@ -16,7 +16,7 @@ script:
 - "./mvnw clean install -B"
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest";
+- export TAG=`if [ "$TRAVIS_BRANCH" == "AlexsandrSyx/apilab2" ]; then echo "latest";
   else echo "$TRAVIS_BRANCH"; fi`
 - export IMAGE_NAME=alexandrsyx/repo-labapi
 - docker build -t $IMAGE_NAME:latest .
