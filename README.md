@@ -25,23 +25,20 @@
 # Сборка и запуск Docker-образа
 Для сборки Docker образа следует выполнить команду docker build -t labapi:latest . находясь в директории с Dockerfile и собранным simpleapi-1.0.jar .
 Запуск осуществляется командой docker run -p 8080:8080 labapi:latest , где первым указывается порт в локальной системе, а вторым порт docker.
-
-# Примеры запросов к simpleapi.
+#### Примеры запросов к simpleapi.
 Формат JSON: {name: "varchar", brand: "varchar",price "integer", quantity: "integer"}
-
-# Получить список:
-curl -X GET http://127.0.0.1:8080/skynet/electronik/product В ответ будет получен JSON.
-
-# Получить запись по id:
-curl -X GET http://127.0.0.1:8080/skynet/electronik/product/d} В ответ будет получен JSON с результатом.
-
-# Добавить запись:
-curl -X POST http://127.0.0.1:8080/skynet/electronik/product -d ‘{«name»: "новый продукт″, "brand": "новый бренд", "price": 100, "quantity": 100}’ -H «Content-Type:application/json» В ответ будет получен статус 200 ОК.
-
-# Удалить запись:
-curl -i -X DELETE http://127.0.0.1:8080/skynet/electronik/product/{id}
-#Также приложение возвращает значение hostname:
-curl -X GET http://127.0.0.1:8080/skynet/electronik/status В ответ будет получен JSON в виде {hostname: "hostname"}.
+#### Получить список:
+- curl -X GET http://localhost:8080/skynet/electronik/product В ответ будет получен JSON.
+#### Получить запись по id:
+- curl -X GET http://localhost:8080/skynet/electronik/product/{id} В ответ будет получен JSON с результатом.
+#### Добавить запись:
+- curl -X POST http://localhost:8080/skynet/electronik/product -d '{"name": "новый продукт", "brand": "новый бренд", "price": 100, "quantity": 100}' -H "Content-Type:application/json" в ответ будет получен JSON c новым product
+#### Обновить запись:
+- curl -X POST http://localhost:8080/skynet/electronik/product/{id} -d '{"name": "новый продукт", "brand": "новый бренд", "price": 100, "quantity": 100}' -H "Content-Type:application/json"
+#### Удалить запись:
+- curl -i -X DELETE http://localhost:8080/skynet/electronik/product/{id}
+#### Также приложение возвращает значение hostname:
+- curl -X GET http://localhost:8080/skynet/electronik/status В ответ будет получен JSON в виде {hostname: "hostname"}.
 ## Лабораторная работа №3: CI/CD и деплой приложения в Heroku
 # Цель работы: 
 ### Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
