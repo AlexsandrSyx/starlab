@@ -91,8 +91,17 @@
         app: my-app
 
 #### Скриншоты вывода команды консоли с шага 3.3 на фоне рабочего стола.
->Screen console command
 ![](https://github.com/AlexsandrSyx/starlab/blob/master/picture/Screen%20console%20command.png)
+>Screen console command
+
+![](https://github.com/AlexsandrSyx/starlab/blob/master/picture/Screen%20graphical%20interface1.png)
+>Screen graphical interface1
+
+![](https://github.com/AlexsandrSyx/starlab/blob/master/picture/Screen%20graphical%20interface2.png)
+>Screen graphical interface2
+
+![](https://github.com/AlexsandrSyx/starlab/blob/master/picture/Screen%20graphical%20interface3.png)
+>Screen graphical interface3
 ## Лабораторная работа №3: CI/CD и деплой приложения в Heroku
 # Цель работы: 
 ### Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
