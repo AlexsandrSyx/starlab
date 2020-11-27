@@ -39,4 +39,11 @@ public class PoroductServiceImpl implements ProductService {
         productRepository.delete(id);
 
     }
+
+    @Override
+    public Product update(Product product) {
+        if (productRepository.existsById(product.getId()))
+            return productRepository.save(product);
+        return null;
+    }
 }

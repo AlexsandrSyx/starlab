@@ -24,13 +24,13 @@ public class ProductController {
     }
 
     @GetMapping(value = "/{id}")
-    public Product get(@PathVariable("id")Long id){
-        log.info("get" +id);
+    public Product get(@PathVariable("id") Long id) {
+        log.info("get" + id);
         return ProductService.get(id);
     }
 
     @GetMapping
-    public List<Product> getALL(){
+    public List<Product> getALL() {
         log.info("getAll");
         return ProductService.getAll();
     }
@@ -41,9 +41,16 @@ public class ProductController {
         return ProductService.save(product);
     }
 
+    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Product update(@PathVariable("id") Long id, @RequestBody Product product) {
+        log.info("update id=" + id + " product=" + product);
+        product.setId(id);
+        return ProductService.update(product);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id")Long id) {
+    public void delete(@PathVariable("id") Long id) {
         log.info("delete" + id);
         ProductService.delete(id);
     }
